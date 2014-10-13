@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script type="text/javascript" src="vendors/polymer/platform/platform.js"></script>
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="simpleharSrc/script.js"></script>
+  <script type="text/javascript" src="simpleharSrc/stupidtable.js"></script>
+  <link rel="stylesheet" href="simpleharSrc/style.css" />
+</head>
+<body>
+  index
+
+  <link rel="import" href="vendors/polymer/core-ajax/core-ajax.html">
+
+  <core-ajax
+    auto
+    url="http://localhost:3000/getSitePerformance"
+    params='{}'
+    handleAs="json"></core-ajax>
+
+  <template repeat="{{ sitePerformance }}">
+    <div>
+      <a href="{{ url }}">{{ site }}</a>
+    </div>
+  </template>
+
+<div id="hoge"></div>
+<style id="st"></style>
+<script id="sc"></script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    document.addEventListener('polymer-ready', function() {
+      var ajax = document.querySelector("core-ajax");
+      ajax.addEventListener("core-response", 
+        function(e) {
+console.log(e);
+hoge = document.querySelector('#hoge');
+st = document.querySelector('#st');
+sc = document.querySelector('#sc');
+c = e;
+/*
+st.textContent = c.detail.response[0].html.css;
+hoge.innerHTML = c.detail.response[0].html.html;
+sc.innerHTML = c.detail.response[0].html.js;
+*/
+          document.querySelector('template').model = {
+            sitePerformance: e.detail.response
+          };
+        }
+      );
+    });
+  </script>
+</body>
+</html>
