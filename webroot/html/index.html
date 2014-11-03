@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Performance Watch</title>
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <link rel="stylesheet" href="../build/css/index.min.css">
+  <script type="text/javascript" src="../vendors/polymer/platform/platform.js"></script>
+</head>
+<body unresolved>
+
+<link rel="import" href="../vendors/polymer/core-toolbar/core-toolbar.html">
+<link rel="import" href="../vendors/polymer/core-icon-button/core-icon-button.html">
+
+
+<core-toolbar class="tall">
+  <span flex>WEB PERFORMANCE WATCH</span>
+  <core-icon-button id="home-button" icon="home"></core-icon-button>
+  <core-icon-button id="fullscreen-button" icon="fullscreen"></core-icon-button>
+</core-toolbar>
+
+
+<div id="main-content" class="main-content">
+  <div>
+
+    <h1>WEB PERFORMANCE WATCH</h1>
+    <div horizontal layout>
+      <div flex>
+        <img width="100%" src="../img/desc.png">
+      </div>
+      <div flex class="app-about">
+        <p>ログイン不要な画面共有アプリケーションです。</p>
+        <core-icon-button id="info-button" icon="extension">Desctop Capture Share</core-icon-button>
+        <p>画面共有をする側はGoogle Chrome 拡張機能をインストールする必要があるので、<br>上記リンクからインストールしてください。</p>
+        <p class="app-attention">※閲覧をする側はインストール不要です。<br>Google Chromeのみ動作をサポートしています。</p>
+      </div>
+    </div>
+
+    <h2>How to Use</h2>
+    <div horizontal layout>
+      <div flex class="app-use">
+        <p>拡張機能のインストール後、<br>下記の操作で画面を共有することができます。</p>
+        <dl class="app-use-process">
+          <dd>1. </dd><dt>Google Chromeの右上に表示されたアイコンをクリックし、ウィンドウを開く。</dt>
+          <dd>2. </dd><dt>画面共有ON/OFFのボタンをクリックし、画面共有を開始する。</dt>
+          <dd>3. </dd><dt>画面の共有ポップアップが表示されるので、共有する画面を選択する。</dt>
+          <dd>4. </dd><dt>再度アイコンをクリックし、ウィンドウを開く。</dt>
+          <dd>5. </dd><dt>URLが生成されているので、そのURLをコピーしてシェアする。</dt>
+        </dl>
+      </div>
+      <div flex>
+        <img width="453" height="450" src="../img/extension.jpg">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="left-banner">
+  <script type="text/javascript">var a8='a14101880157_2BYIHJ_64AFDM_249K_BUB81';var rankParam='3NCPTmgazGB-LDQ4TmCn7lBvjl8bgV64MdC1T7g-ZlQTZD7VR17kvOSlcNR-zV64MdC1T7g-ZlQTZD7VR17kvO3xx';var trackingParam='4gVcEHtRoZMgcKOXE8wXEKMKoQmnr_jls8w-s_ixx';var bannerType='0';var bannerKind='item.fix.kind8';var frame='0';var ranking='1';var category='本';</script><script type="text/javascript" src="http://amz-ad.a8.net/amazon/amazon_ranking.js"></script>
+</div>
+
+
+<div class="sns-links">
+  <div id="m-sns-links">
+    <a class="facebook-link"
+       href="https://www.facebook.com/sharer/sharer.php?u=http://screen-share.itinao.asia/"
+       target="_blank"><span class="fa fa-facebook"></span></a>
+    <a class="twitter-link"
+       href="https://twitter.com/intent/tweet?url=http://screen-share.itinao.asia/&text=ログイン不要なデスクトップ画面の共有アプリが登場！&via=itinao&hashtags=dcs"
+       target="_blank"><span class="fa fa-twitter"></span></a>
+    <a class="google-link"
+       href="https://plus.google.com/share?url=http://screen-share.itinao.asia/"
+       target="_blank"><span class="fa fa-google-plus"></span></a>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('polymer-ready', function(e) {
+  var homeButton = window['home-button'];
+
+  // homeへ
+  homeButton.addEventListener('click', function(event) {
+    window.open("index.html");
+  });
+
+  var mSnsLinks = window['m-sns-links'];
+  var snsLinks = mSnsLinks.children;
+  for (var i = 0, l = snsLinks.length; i < l; i++) {
+    snsLinks[i].addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      var w = 550,  h = 420, l = 0, t = 0, sw = screen.width, sh = screen.height;
+      if (sw > w) l = Math.round(sw/2 - w/2);
+      if (sh > h) t = Math.round(sh/2 - h/2);
+      window.open(this.href, "Tweet", "width="+w+",height="+h+",left="+l+",top="+t+",scrollbars=yes,resizable=yes,toolbar=no,location=yes");
+      return false;
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>
