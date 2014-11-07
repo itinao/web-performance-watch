@@ -2,7 +2,7 @@
  * harを取得してDBに突っ込む + harをyslowに投げて結果をDBに突っ込む
  */
 var exec = require('child_process').exec;
-var cmd = "phantomjs lib/netsniff.js";
+var cmd = "/usr/local/bin/phantomjs " + __dirname + "/lib/netsniff.js";
 var mysql = require('mysql');
 var async = require('async');
 var YSLOW = require('yslow').YSLOW;

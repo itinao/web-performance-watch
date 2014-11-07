@@ -3,11 +3,11 @@
  */
 
 // *** webroot
-var webBase                = 'webroot/';
-var webSassFiles           = webBase + 'scss/*.scss';
-var webSassBuildDir        = webBase + 'build/css/';
-var webHtmlFiles           = webBase + 'html/*.html';
-var webHtmlBuildDir        = webBase + '/';
+var webBase         = 'webroot/';
+var webSassFiles    = webBase + 'scss/*.scss';
+var webSassBuildDir = webBase + 'build/css/';
+var webHtmlFiles    = webBase + 'html/*.html';
+var webHtmlBuildDir = webBase + '/';
 
 // requires
 var gulp = require('gulp');

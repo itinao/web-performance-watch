@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "forever start -l per_prod_`date +'%Y%m%d%I%M%S'`.log app.js",
+    "stop": "forever stopall"
   },
   "author": "",
   "license": "ISC",
